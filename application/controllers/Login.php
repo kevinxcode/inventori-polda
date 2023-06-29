@@ -53,15 +53,7 @@ class Login extends CI_Controller {
 				'iv_level'  => $level,
 			);
 			$this->session->set_userdata($usersession);
-			$priviledge = [];
-			$data_priv = $this->Mmaster->get_role();
-			foreach($data_priv as $dt){
-				$idrole = $dt->idrole;
-				$priviledge[$idrole] = $this->Mmaster->get_priviledge($token_user,$idrole);
-				$priviledge[$idrole.'_1'] = $this->Mmaster->get_priviledge_data($token_user,$idrole,"1");
-				$priviledge[$idrole.'_2'] = $this->Mmaster->get_priviledge_data($token_user,$idrole,"2");
-			}
-		$this->session->set_userdata(['priviledge_claim' => $priviledge]);
+			
 					
 		$this->session->set_flashdata('successlogin', 'welcome');
 		redirect('home');

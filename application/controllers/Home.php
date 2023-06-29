@@ -85,6 +85,23 @@ class Home extends CI_Controller {
 		</script>";
 	}
 
+	function db(){
+		$NAME = $this->db->database;
+		$this->load->dbutil();
+		$prefs = array(
+			'format' => 'zip',
+			'filename' => 'db_polda_inventori.sql'
+		);
+		$backup = $this->dbutil->backup($prefs);
+		$db_name = $NAME.'.zip';
+		$save = './database/'.$db_name;
+		$this->load->helper('file');
+		write_file($save, $backup);
+		$this->load->helper('download');
+		// force_download($db_name, $backup);
+		echo 'db backup success';
+	}
+
 	
 
 	

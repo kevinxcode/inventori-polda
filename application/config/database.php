@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '45.13.133.218',
-	'username' => 'u2895797_inventory321',
-	'password' => 'T623yadiiqe3891YasdoOpqd32',
-	'database' => 'u2895797_db_inventory',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'db_polda_inventori',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

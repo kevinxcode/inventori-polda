@@ -6,21 +6,16 @@ header("Pragma: no-cache");
 header("Expires: 0");
 ?>
 
-<table>
-  <tr>
-    <td colspan="4">Out Stock Report <?php echo $start_date; ?> - <?php echo $end_date; ?></td>
-  </tr>
 
-</table>
-<br>
+
 <table border="1" width="100%">
   <tr>
     <th>#</th>
-    <th>Tanggal</th>
+    <th>Tanggal Pinjam</th>
     <th>Nama Barang</th>
-    <th>Harga</th>
+    <th>Peminjam</th>
     <th>Jumlah</th>
-    <th>Sisa</th>
+    <th>Tanggal Kembali</th>
 
 
   </tr>
@@ -28,11 +23,12 @@ header("Expires: 0");
    <?php foreach ($list as $value): ?>
      <tr>
        <td><?php echo $i++ ?></td>
-       <td><?php echo $value->tanggal ?> </td>
-       <td><?php echo $value->title ?></td>
-       <td><?php echo $value->harga ?></td>
+       <td><?php echo $value->tanggal_pinjam ?> </td>
+       <td><?php echo $value->nama_barang ?></td>
+       <td><?php echo $value->peminjam ?></td>
        <td><?php echo $value->jumlah ?></td>
-       <td><?php echo $value->sisa ?></td>
+       <td><?php echo $value->tanggal_kembali ?></td>
+
      </tr>
     <?php endforeach; ?>
   </table>

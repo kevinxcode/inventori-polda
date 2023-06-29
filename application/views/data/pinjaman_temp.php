@@ -19,11 +19,13 @@
 								<div class="card card-custom">
 									<div class="card-header flex-wrap py-2">
 										<div class="card-title">
-											<h3 class="card-label">Data User
+											<h3 class="card-label">Data Pinjam Pakai
 											</h3>
 										</div>
 										<div class="card-toolbar">
+
 											<!--begin::Button-->
+
 
 											<a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-sm">
 											<span class="svg-icon svg-icon-sm">
@@ -42,8 +44,13 @@
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Name</th>
-													<th>Username</th>
+													<th>Tanggal Pinjam</th>
+													<th>Nama Barang</th>
+													<th>Peminjam</th>
+													<th>Jumlah</th>
+													<th>Tanggal Kembali</th>
+
+
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -52,69 +59,18 @@
 												<?php foreach ($list as $value): ?>
 												<tr>
 													<td><?php echo $i++ ?></td>
-													<td><?php echo $value->name ?> </td>
-													<td><?php echo $value->username ?></td>
-
+													<td><?php echo $value->tanggal_pinjam ?> </td>
+													<td><?php echo $value->nama_barang ?></td>
+													<td><?php echo $value->peminjam ?></td>
+													<td><?php echo $value->jumlah ?></td>
+													<td><?php echo $value->tanggal_kembali ?></td>
 
 													<td>
-
-														<a href="#" data-toggle="modal" data-target="#myModalEdit<?php echo $value->idUser ?>" class="btn btn-info btn-sm">Edit</a>
-
-
-														<a href="<?php echo prefix_url;?>master/delUser/<?php echo $value->token_user ?>" class="btn btn-danger btn-sm">Delete</a>
-
+														<a onclick="edit_peralatan('<?php echo $value->id_pinjaman ?>')" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Edit</a>
+														<a href="<?php echo prefix_url;?>app/delPinjaman/<?php echo $value->id_pinjaman ?>" class="btn btn-danger btn-sm">Delete</a>
 													</td>
 
 												</tr>
-												<!-- Modal -->
-											<div id="myModalEdit<?php echo $value->idUser ?>" class="modal fade" role="dialog">
-											  <div class="modal-dialog modal-lg">
-											    <!-- Modal content-->
-											    <div class="modal-content">
-											      <div class="modal-header">
-											        <h4 class="modal-title">Edit</h4>
-											      </div>
-											      <div class="modal-body">
-															<!-- form -->
-															<form action="<?php echo prefix_url;?>master/updateUser" method="Post">
-
-															<div class="form-group">
-																<label>Name
-																<span class="text-danger">*</span></label>
-																<input type="text" name="name" value="<?php echo $value->name ?>" class="form-control"  />
-																<input type="hidden" name="idUser" value="<?php echo $value->idUser ?>" class="form-control"  />
-															</div>
-
-															<div class="form-group">
-																<label>Username
-																<span class="text-danger">*</span></label>
-																<input type="text" name="username" value="<?php echo $value->username ?>" class="form-control"  />
-
-															</div>
-
-
-
-															<div class="form-group">
-																<label>Level
-																<span class="text-danger">*</span></label>
-																<select name="level" class="form-control" required>
-											            <option value="1" <?php if($value->level=='1'): ?>selected<?php endif; ?>>Admin</option>
-
-											          </select>
-															</div>
-
-
-											      </div>
-											      <div class="modal-footer">
-															<button type="submit" class="btn btn-primary" >Submit</button>
-														</form>
-											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											      </div>
-											    </div>
-
-											  </div>
-											</div>
-											<!--end modal-->
 												<?php endforeach; ?>
 											</tbody>
 										</table>
@@ -142,44 +98,47 @@
       </div>
       <div class="modal-body">
 				<!-- form -->
-				<form action="<?php echo prefix_url;?>master/addUser" method="Post">
+				<form action="<?php echo prefix_url;?>app/addPinjaman" method="Post">
+					<input type="hidden" name="id_pinjaman"  id="id_pinjaman" value="0" class="form-control"  />
+
+					<div class="form-group">
+						<label>Tanggal Pinjam
+						<span class="text-danger">*</span></label>
+						<input type="text" name="tanggal_pinjam" id="kt_datepicker_1"  class="form-control" value="<?php echo date('Y-m-d') ?>" readonly="readonly" required placeholder="Select date" />
+					</div>
 
 
 				<div class="form-group">
-					<label>Name
+					<label>Nama Barang
 					<span class="text-danger">*</span></label>
-					<input type="text" name="name" class="form-control"  />
+					<input type="text" name="nama_barang"  id="nama_barang" class="form-control"  />
 				</div>
 
 				<div class="form-group">
-					<label>Username
+					<label>Peminjam
 					<span class="text-danger">*</span></label>
-					<input type="text" name="username" class="form-control"  />
+					<input type="text" name="peminjam" id="peminjam" class="form-control"  />
 				</div>
 
 				<div class="form-group">
-					<label>Password
-					<span class="text-danger">*</span></label>
-					<input type="password" name="password" class="form-control"  />
+					<label>Jumlah
+					<span class="text-danger">*  </span></label>
+					<input type="number" name="jumlah" id="jumlah" class="form-control"  />
 				</div>
-
-
 
 				<div class="form-group">
-					<label>Level
+					<label>Tanggal Kembali
 					<span class="text-danger">*</span></label>
-					<select name="level" class="form-control" required>
-            <option value="1">Admin</option>
-
-          </select>
+					<input type="text" name="tanggal_kembali" id="kt_datepicker_2" class="form-control" value="<?php echo date('Y-m-d') ?>"  readonly="readonly" required placeholder="Select date" />
 				</div>
+
 
 
       </div>
       <div class="modal-footer">
-				<button type="submit" class="btn btn-primary" >Submit</button>
+				<button type="submit" id="btn_submit" class="btn btn-primary" >Submit</button>
 			</form>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
@@ -187,6 +146,26 @@
 </div>
 <!--end modal-->
 
+<script>
+function edit_peralatan(id_pinjaman){
+	$.ajax({
+	 url: '<?php echo base_url();?>app/editPinjaman/'+id_pinjaman,
+	 dataType: 'html',
+	 success: function(data) {
+		const obj = JSON.parse(data);
+		$('#id_pinjaman').val(obj[0].id_pinjaman);
+		$('#kt_datepicker_1').val(obj[0].tanggal_pinjam);
+		$('#nama_barang').val(obj[0].nama_barang);
+		$('#peminjam').val(obj[0].peminjam);
+		$('#jumlah').val(obj[0].jumlah);
+		$('#kt_datepicker_2').val(obj[0].tanggal_kembali);
+
+	}
+ });
+}
+</script>
+
+	<script src="<?php echo prefix_url;?>assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
 <link href="<?php echo prefix_url;?>assets/select2/select2.min.css" rel="stylesheet" />
 <link href="<?php echo prefix_url;?>assets/select2/select2-bootstrap4.css" rel="stylesheet">
 <script src="<?php echo prefix_url;?>assets/select2/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

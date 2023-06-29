@@ -2,7 +2,7 @@
 	<!--begin::Head-->
 	<head>
 		<meta charset="utf-8" />
-		<title>Inventory Warehouse - Login</title>
+		<title>DAFTAR INVENTARIS SITEKINTEL DITINTELKAM</title>
 		<meta name="description" content="Inventory Warehouse - Login" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="" />
@@ -34,7 +34,7 @@
 					<div class="login-content d-flex flex-column pt-lg-0 pt-12">
 						<!--begin::Logo-->
 						<a href="#" class="login-logo pb-xl-20 pb-15">
-							<img src="<?php echo prefix_url;?>assets/inventory_logo/inventory_sea logo_2.png" class="max-h-70px" alt="" />
+							<img src="<?php echo prefix_url;?>assets/inventory_logo/inventory_sea logo_2.png" class="max-h-120px" alt="" />
 						</a>
 						<!--end::Logo-->
 						<script>
@@ -65,7 +65,7 @@
 							<form class="form" action="<?php echo prefix_url;?>login/checkLOgin" method="POST">
 								<!--begin::Title-->
 								<div class="pb-2 pb-lg-5">
-									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Inventory Warehouse - Login</h3>
+									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">DAFTAR INVENTARIS SITEKINTEL DITINTELKAM</h3>
 								</div>
 								<!--begin::Title-->
 
@@ -93,7 +93,7 @@
 							<!--end::Form-->
 						</div>
 						<!--end::Signin-->
-						 &copy; Copyright - fadeintech.com <?php echo date('Y') ?>
+						 &copy; Copyright -  <?php echo date('Y') ?>
 					</div>
 					<!--end::Wrapper-->
 				</div>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends MY_Controller {
+class Home extends CI_Controller {
 
 	function __construct(){
 		date_default_timezone_set('Asia/Jakarta');
@@ -24,7 +24,7 @@ class Home extends MY_Controller {
 		if(!empty($username)){
 			$data['current_page'] = "home";
 			$data['sub_page'] = "home";
-			$data['list'] = $this->Mdata->get_pengeluaran_home();
+			$data['list'] = $this->Mdata->get_master_pegadaan();
 			$this->load->view('app/index_header_template', $data);
 			$this->load->view('app/home_template', $data);
 			$this->load->view('app/index_footer_template', $data);

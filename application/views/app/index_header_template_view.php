@@ -3,7 +3,7 @@
 	<!--begin::Head-->
 	<head><base href="">
 		<meta charset="utf-8" />
-		<title>Inventory Warehouse | Dashboard</title>
+		<title>INVENTARIS SITEKINTEL</title>
 		<meta name="description" content="Inventory Warehouse | Dashboard" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="" />

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Master extends MY_Controller {
+class Master extends CI_Controller {
 
 	function __construct(){
 		date_default_timezone_set('Asia/Jakarta');
@@ -13,6 +13,9 @@ class Master extends MY_Controller {
 		
 		$this->session_val = $this->session->has_userdata('iv_username');
 	}
+
+	
+	
 
 
 	function user(){
@@ -30,8 +33,7 @@ class Master extends MY_Controller {
 		$data['flash_message'] = $this->session->flashdata('alert');
 		// end session
 		if($level!='1') { redirect('home/limitAccess');}
-		$priviledge_set = $this->Mmaster->get_priviledge_data_view($token,'user');
-        if (!$priviledge_set){redirect('home/limitAccess_priv');}
+		
 		// end level session
 		if(!empty($username)){
 			$data['current_page'] = "master";
@@ -106,8 +108,7 @@ class Master extends MY_Controller {
 		$data['flash_message'] = $this->session->flashdata('alert');
 		// end session
 		if($level!='1') { redirect('home/limitAccess');}
-        $priviledge_set = $this->Mmaster->get_priviledge_data_view($token,'role');
-        if(!$priviledge_set){redirect('home/limitAccess_priv');}
+        
 		if(!empty($username)){
 			$data['current_page'] = "role";
 			$data['sub_page'] = "role";
@@ -149,8 +150,7 @@ class Master extends MY_Controller {
 		$data['flash_message'] = $this->session->flashdata('alert');
 		// end session
 		if($level!='1') { redirect('home/limitAccess');}
-        $priviledge_set = $this->Mmaster->get_priviledge_data_view($token,'user');
-        if(!$priviledge_set){redirect('home/limitAccess_priv');}
+       
 		if(!empty($username)){
 			$data['current_page'] = "role";
 			$data['sub_page'] = "role";

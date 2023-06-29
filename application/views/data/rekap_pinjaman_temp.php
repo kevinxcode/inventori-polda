@@ -1,5 +1,4 @@
 <?php $priviledge = $this->session->userdata('priviledge_claim');  ?>
-
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<!--begin::Entry-->
@@ -20,11 +19,18 @@
 								<div class="card card-custom">
 									<div class="card-header flex-wrap py-2">
 										<div class="card-title">
-											<h3 class="card-label">Home
+											<h3 class="card-label">Rekap Data Pinjam Pakai
 											</h3>
 										</div>
 										<div class="card-toolbar">
+
 											<!--begin::Button-->
+
+
+											<a href="<?php echo prefix_url;?>app/xls_2" class="btn btn-primary btn-sm">
+											<span class="svg-icon svg-icon-sm">
+												<i class="flaticon2-file"></i>
+											</span>EXCEL</a>
 
 											<!--end::Button-->
 
@@ -36,8 +42,13 @@
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Judul Pengadaan</th>
-													<th>Tahun</th>
+													<th>Tanggal Pinjam</th>
+													<th>Nama Barang</th>
+													<th>Peminjam</th>
+													<th>Jumlah</th>
+													<th>Tanggal Kembali</th>
+
+
 
 												</tr>
 											</thead>
@@ -46,8 +57,12 @@
 												<?php foreach ($list as $value): ?>
 												<tr>
 													<td><?php echo $i++ ?></td>
-													<td><?php echo $value->judul_pengadaan ?> </td>
-													<td><?php echo $value->tahun ?></td>
+													<td><?php echo $value->tanggal_pinjam ?> </td>
+													<td><?php echo $value->nama_barang ?></td>
+													<td><?php echo $value->peminjam ?></td>
+													<td><?php echo $value->jumlah ?></td>
+													<td><?php echo $value->tanggal_kembali ?></td>
+
 
 												</tr>
 												<?php endforeach; ?>
@@ -67,7 +82,9 @@
 
 
 
-
-<!--date picker-->
 	<script src="<?php echo prefix_url;?>assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
-<!--end date picker-->
+<link href="<?php echo prefix_url;?>assets/select2/select2.min.css" rel="stylesheet" />
+<link href="<?php echo prefix_url;?>assets/select2/select2-bootstrap4.css" rel="stylesheet">
+<script src="<?php echo prefix_url;?>assets/select2/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="<?php echo prefix_url;?>assets/select2/select2.min.js"></script>
+<script src="<?php echo prefix_url;?>assets/script.js"></script>
